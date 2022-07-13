@@ -29,6 +29,7 @@ Route::resource('transactions', \App\Http\Controllers\TransactionController::cla
 Route::get('/test', function(){
     AccountType::create([
         'name' => 'saving',
+        'allowed_balance' => 299990,
         'description' => 'savings account'
     ]);
     TransactionType::create([
