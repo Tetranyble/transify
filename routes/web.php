@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\AccountType;
+use App\Models\TransactionType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +26,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('transactions', \App\Http\Controllers\TransactionController::class);
+Route::get('/test', function(){
+    AccountType::create([
+        'name' => 'saving',
+        'description' => 'savings account'
+    ]);
+    TransactionType::create([
+        'name' => 'transfer',
+        'description' => 'savings account'
+    ]);
+    TransactionType::create([
+        'name' => 'deposit',
+        'description' => 'savings account'
+    ]);
+    TransactionType::create([
+        'name' => 'withdrawal',
+        'description' => 'savings account'
+    ]);
+
+    return "<p> Seeding done</p>";
+});
