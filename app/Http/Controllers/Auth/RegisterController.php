@@ -78,9 +78,11 @@ class RegisterController extends Controller
 
             $user->each(function($user){
                 $account = AccountType::where('name', 'saving')->first();
-                $account = Account::factory()->create([
+                $account = Account::create([
                     'user_id' => $user->id,
-                    'account_type_id' => $account->id
+                    'account_type_id' => $account->id,
+                    'balance' => 0,
+                    'account_number' => 9876543210
                 ]);
 
             });
